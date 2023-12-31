@@ -3,7 +3,9 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 import { IoIosCloudDownload } from "react-icons/io";
-import profile1 from "../assets/rafikul.jpg";
+import profile1 from "../assets/rafikulpng.png";
+// import profile1 from "../assets/rafikul.jpg";
+import Typewriter from "typewriter-effect";
 
 const Landing = ({ setSelectedPage }) => {
   const isAboveLarge = useMediaQuery("(min-width: 1060px)");
@@ -11,17 +13,22 @@ const Landing = ({ setSelectedPage }) => {
   return (
     <section
       id="home"
-      className="md:flex md:justify-between md:items-center gap-16 md:h-full py-10"
+      className=" md:w-5/6 mx-auto text-center md:flex md:justify-between md:items-center gap-16 md:h-full py-10"
     >
       {/* IMAGE SECTION */}
       <div className="md:basis-3/5 z-10 mt-16 md:mt-32 flex justify-center md:order-2">
         {isAboveLarge ? (
-          <div className=" border-2 p-14">
-            <img
-              alt="profile"
-              className="hover:filter rounded-full hover:saturate-200 transition duration-500 z-10 w-[250px] max-w-[400px] md:max-w-[600px]"
-              src={profile1}
-            />
+          <div className="relative z-0 ml-20 before:absolute before:-top-10 before:-left-10 before:w-full before:h-full before:border-2 before:border-blue before:z-[-1]">
+            <div className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r  bg-opacity-40 backdrop-filter backdrop-blur-md"></div>
+              <div className="absolute top-0 left-0 w-full h-1/2 border-t-2 border-gray-900 border-opacity-40"></div>
+              <img
+                alt="profile"
+                className="rounded-lg  w-[320px] max-w-[400px] md:max-w-[600px] relative z-20"
+                src={profile1}
+              />
+              <div className="absolute bottom-0 left-0 w-full h-1/2 border-b-2 border-gray-900 border-opacity-40"></div>
+            </div>
           </div>
         ) : (
           <img
@@ -46,15 +53,31 @@ const Landing = ({ setSelectedPage }) => {
           }}
         >
           <p className="text-6xl font-playfair z-10 text-center md:text-start">
-            ISLAM {""}
-            <span className="xs:relative xs:text-deep-blue xs:font-semibold z-20 xs:before:content-brush before:absolute before:-left-[25px] before:-top-[70px] before:z-[-1]">
-              RAFIKUL
-            </span>
+            Hi there,
+            <br />
+            this is
+            <Typewriter
+              options={{
+                strings: [
+                  "ISLAM RAFIKUL",
+                  "a software engineer",
+                  " junior developer",
+                ],
+                autoStart: true,
+                loop: true,
+              }}
+            />
+            {/* Uncomment the following lines if you want to add special styling */}
+            {/* <span className="xs:relative xs:text-deep-blue xs:font-semibold z-20 xs:before:content-brush before:absolute before:-left-[25px] before:-top-[70px] before:z-[-1]"> */}
+            {/* RAFIKUL */}
+            {/* </span> */}
           </p>
 
           <p className="mt-10 mb-7 text-sm text-center md:text-start">
-            Adipiscing arcu, in aliquam fringilla cursus. Elit arcu elementum
-            viverra malesuada sem ac faucibus dolor. Sagittis scelerisque.
+            A junior developer with a passion for perpetual learning and a
+            belief in the power of collaboration for success in every coding
+            endeavor. Join me on this exciting journey where each line of code
+            tells a story of innovation!
           </p>
         </motion.div>
 
