@@ -1,6 +1,7 @@
 import LineGradient from "../components/LineGradient";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { motion } from "framer-motion";
+import data from "../../public/data.json";
 
 const MySkills = () => {
   const isAboveLarge = useMediaQuery("(min-width: 1060px)");
@@ -19,10 +20,10 @@ const MySkills = () => {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <p className="font-playfair font-semibold text-4xl mb-5">
+          <p className="font-playfair font-semibold text-4xl ml-3 mb-5">
             MY <span className="text-red">SKILLS</span>
           </p>
-          <LineGradient width="w-1/3" />
+          <LineGradient width="w-1/2" />
           <p className="mt-10 mb-7">
             Aliquam, amet dui feugiat facilisi dui. Aliquam aliquet integer ut
             fames odio in at.
@@ -48,6 +49,26 @@ const MySkills = () => {
       </div>
 
       {/* SKILLS */}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 p-4">
+        <h3 className="col-span-full text-2xl font-semibold mb-4">
+          🛠 Language and Tools
+        </h3>
+        {data.languagesAndTools.map((tool, index) => (
+          <div
+            key={index}
+            className="bg-white bg-opacity-20 rounded-md  flex flex-col items-center justify-center shadow-md"
+          >
+            <img
+              alt={tool.name}
+              src={tool.badge}
+              className="w-24 h-24 mb-2 object-contain"
+            />
+            <p className="text-sm text-white text-center -mt-6">{tool.name}</p>
+          </div>
+        ))}
+      </div>
+
       <div className="md:flex md:justify-between mt-16 gap-32">
         {/* EXPERIENCE */}
         <motion.div
