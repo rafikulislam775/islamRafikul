@@ -1,5 +1,6 @@
 import LineGradient from "../components/LineGradient";
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const container = {
   hidden: {},
@@ -15,7 +16,7 @@ const projectVariant = {
   visible: { opacity: 1, scale: 1 },
 };
 
-const Project = ({ title }) => {
+const Project = ({ title, liveLink, codeLink }) => {
   const overlayStyles = `absolute h-full w-full opacity-0 hover:opacity-90 transition duration-500
     bg-grey z-30 flex flex-col justify-center items-center text-center p-16 text-deep-blue`;
   const projectTitle = title.split(" ").join("-").toLowerCase();
@@ -24,10 +25,24 @@ const Project = ({ title }) => {
     <motion.div variants={projectVariant} className="relative">
       <div className={overlayStyles}>
         <p className="text-2xl font-playfair">{title}</p>
-        <p className="mt-7">fdfhfdgfghfgjghj</p>
+        <p className="mt-7">Description of the project goes here.</p>
         <div className="flex">
-          <button className="btn">live</button>
-          <button className="btn">code</button>
+          <a
+            href={liveLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn"
+          >
+            Live
+          </a>
+          <a
+            href={codeLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn"
+          >
+            Code
+          </a>
         </div>
       </div>
       <img src={`../assets/${projectTitle}.jpeg`} alt={projectTitle} />
@@ -36,6 +51,16 @@ const Project = ({ title }) => {
 };
 
 const Projects = () => {
+  const [projectsData, setProjectsData] = useState([]);
+
+  useEffect(() => {
+    // Load projects data from the JSON file
+    fetch("../assets/projectsData.json")
+      .then((response) => response.json())
+      .then((data) => setProjectsData(data))
+      .catch((error) => console.error("Error loading projects data:", error));
+  }, []);
+
   return (
     <section id="projects" className="pt-48 pb-48">
       {/* HEADINGS */}
@@ -74,30 +99,9 @@ const Projects = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {/* ROW 1 */}
-          <div
-            className="flex justify-center text-center items-center p-10 
-              max-w-[400px] max-h-[400px] text-2xl font-playfair font-semibold"
-          >
-            BEAUTIFUL USER INTERFACES
-          </div>
-          <Project title="Project 1" />
-          <Project title="Project 2" />
-
-          {/* ROW 2 */}
-          <Project title="Project 3" />
-          <Project title="Project 4" />
-          <Project title="Project 5" />
-
-          {/* ROW 3 */}
-          <Project title="Project 6" />
-          <Project title="Project 7" />
-          <div
-            className="flex justify-center text-center items-center p-10 
-              max-w-[400px] max-h-[400px] text-2xl font-playfair font-semibold"
-          >
-            SMOOTH USER EXPERIENCE
-          </div>
+          {projectsData.map((project, index) => (
+            <Project key={index} {...project} />
+          ))}
         </motion.div>
       </div>
     </section>
