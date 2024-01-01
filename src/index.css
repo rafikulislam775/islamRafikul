@@ -12,3 +12,6 @@ body,
   /* background-color: #010026; */
   @apply text-white;
 }
+/* html, body {
+  overflow-x: hidden;
+} */

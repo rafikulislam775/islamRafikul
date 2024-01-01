@@ -11,7 +11,6 @@ import { useEffect, useState } from "react";
 import Testimonials from "./scenes/Testimonials";
 import ScrollToTop from "react-scroll-to-top";
 import { IoIosArrowDropup } from "react-icons/io";
-import { motion } from "framer-motion";
 
 function App() {
   const [selectedPage, setSelectedPage] = useState("home");
@@ -20,21 +19,21 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY === 0) {
-        setIsTopOfPage(true);
-        setSelectedPage("home");
-      }
-      if (window.scrollY !== 0) setIsTopOfPage(false);
+      setIsTopOfPage(window.scrollY === 0);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleViewportEnter = (page) => {
+    setSelectedPage(page);
+  };
+
   return (
-    <div className="app ">
+    <div className="app">
       <ScrollToTop
         component={
-          <p className="  text-pink-500 p-1 text-5xl">
+          <p className="text-pink-500 p-1 text-5xl">
             <IoIosArrowDropup size={32} />
           </p>
         }
@@ -52,15 +51,22 @@ function App() {
             setSelectedPage={setSelectedPage}
           />
         )}
-        <Landing setSelectedPage={setSelectedPage} />
-        <LineGradient />
-        <MySkills />
-        <LineGradient />
-        <Projects />
-        <LineGradient />
-        <Testimonials />
-        <LineGradient />
-        <Contact />
+        <Landing
+          setSelectedPage={setSelectedPage}
+          onViewportEnter={() => handleViewportEnter("home")}
+        />
+        <MySkills
+          onViewportEnter={() => handleViewportEnter("skills")}
+        ></MySkills>
+        <Projects
+          onViewportEnter={() => handleViewportEnter("projects")}
+        ></Projects>
+        <Testimonials
+          onViewportEnter={() => handleViewportEnter("testimonials")}
+        ></Testimonials>
+        <Contact
+          onViewportEnter={() => handleViewportEnter("contact")}
+        ></Contact>
         <Footer />
       </div>
     </div>

@@ -31,11 +31,18 @@ const Landing = ({ setSelectedPage }) => {
             </div>
           </div>
         ) : (
-          <img
-            alt="profile"
-            className="z-10 w-full max-w-[400px] md:max-w-[600px]"
-            src={profile1}
-          />
+          <div className="relative z-0 ml-20 before:absolute before:-top-10 before:-left-10 before:w-full before:h-full before:border-2 before:border-blue before:z-[-1]">
+            <div className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r  bg-opacity-40 backdrop-filter backdrop-blur-md"></div>
+              <div className="absolute top-0 left-0 w-full h-1/2 border-t-2 border-gray-900 border-opacity-40"></div>
+              <img
+                alt="profile"
+                className="rounded-lg  w-[220px] max-w-[300px] md:max-w-[400px] relative z-20"
+                src={profile1}
+              />
+              <div className="absolute bottom-0 left-0 w-full h-1/2 border-b-2 border-gray-900 border-opacity-40"></div>
+            </div>
+          </div>
         )}
       </div>
 
@@ -113,7 +120,7 @@ const Landing = ({ setSelectedPage }) => {
         </motion.div>
 
         <motion.div
-          className="flex mt-5 justify-center md:justify-start"
+          className="flex mb-2  justify-center md:justify-start"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.5 }}
