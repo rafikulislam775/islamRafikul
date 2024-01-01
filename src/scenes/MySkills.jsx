@@ -25,8 +25,9 @@ const MySkills = () => {
           </p>
           <LineGradient width="w-1/2" />
           <p className="mt-10 mb-7">
-            Aliquam, amet dui feugiat facilisi dui. Aliquam aliquet integer ut
-            fames odio in at.
+            Actively learning and exploring various new technologies is a
+            perpetual part of my routine. Embracing the unknown and conquering
+            new challenges is where I find my stride.
           </p>
         </motion.div>
 
@@ -50,9 +51,10 @@ const MySkills = () => {
 
       {/* SKILLS */}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 p-4">
         <h3 className="col-span-full text-2xl font-semibold mb-4">
           🛠 Language and Tools
+          <LineGradient width="w-1/2 mt-2" />
         </h3>
         {data.languagesAndTools.map((tool, index) => (
           <div
@@ -92,9 +94,9 @@ const MySkills = () => {
             <div className="w-1/2 md:w-3/4 h-32 bg-blue absolute right-0 top-0 z-[-1]" />
           </div>
           <p className="mt-5">
-            A auctor pharetra hendrerit mattis amet etiam interdum platea. Est
-            morbi porttitor scelerisque fermentum, sagittis non egestas. Amet
-            odio sit sagittis,
+            Engaged in a captivating personal project, demonstrating a keen
+            commitment to coding and a proactive approach to skill enhancement
+            through hands-on exploration of cutting-edge technologies.
           </p>
         </motion.div>
 
@@ -120,10 +122,9 @@ const MySkills = () => {
             <div className="w-1/2 md:w-3/4 h-32 bg-red absolute right-0 top-0 z-[-1]" />
           </div>
           <p className="mt-5">
-            Urna, eget pulvinar dolor cursus volutpat dictum odio. Nec ultricies
-            amet in in neque nibh tortor. Libero sed pretium justo nulla blandit
-            nulla amet habitant iaculis. Iaculis in congue vitae sollicitudin
-            faucibus a
+            Proactively delving into cutting-edge technologies showcases my
+            commitment to innovation, fostering an environment where I can push
+            boundaries and stay at the forefront of advancements in the field.
           </p>
         </motion.div>
         {/* IMAGINATIVE */}
@@ -148,10 +149,10 @@ const MySkills = () => {
             <div className="w-1/2 md:w-3/4 h-32 bg-yellow absolute right-0 top-0 z-[-1]" />
           </div>
           <p className="mt-5">
-            Accumsan eu fringilla nisi, eget. Vitae, eget ut id proin arcu in
-            curabitur. Lectus libero, egestas enim aliquam quis felis amet.
-            Sagittis, amet netus fringilla netus lobortis odio sed platea.
-            Bibendum.
+            Navigating a diverse landscape of ideas and perspectives through
+            collaboration with individuals worldwide reflects my imaginative
+            approach, fostering a dynamic mindset that embraces the unknown and
+            conquers new challenges with enthusiasm.
           </p>
         </motion.div>
       </div>
