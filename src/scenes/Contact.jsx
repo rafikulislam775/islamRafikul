@@ -1,25 +1,78 @@
 import LineGradient from "../components/LineGradient";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
+import myimg from "../assets/contact_pic.jpg";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 const Contact = () => {
+  const form = useRef();
   const {
     register,
     trigger,
     formState: { errors },
+    getValues,
+    reset,
   } = useForm();
 
-  const onSubmit = async (e) => {
-    console.log("~ e", e);
+  const sendEmail = async (e) => {
+    e.preventDefault();
+
+    // Trigger form validation
     const isValid = await trigger();
+
     if (!isValid) {
-      e.preventDefault();
+      // Show validation errors to the user
+      Swal.fire({
+        title: "Oops!",
+        text: "Please fill in all the required fields correctly.",
+        icon: "error",
+      });
+      return;
     }
+
+    // Check for empty fields
+    const formData = getValues();
+    if (Object.values(formData).some((value) => !value)) {
+      // Show alert for empty fields
+      Swal.fire({
+        title: "Oops!",
+        text: "Please fill in all the required fields.",
+        icon: "error",
+      });
+      return;
+    }
+
+    emailjs
+      .sendForm(
+        "service_nil89q7",
+        "template_wc40b4s",
+        form.current,
+        "gxmiWOyQuOaLGs_j_"
+      )
+      .then(
+        (result) => {
+          Swal.fire({
+            title: "Success!",
+            text: "Your message has been sent successfully.",
+            icon: "success",
+          });
+          reset(); // Clear the form after successful submission if needed
+        },
+        (error) => {
+          Swal.fire({
+            title: "Oops!",
+            text: "Something went wrong. Please try again later.",
+            icon: "error",
+          });
+          console.log(error.text);
+        }
+      );
   };
 
   return (
     <section id="contact" className="pt-32 pb-16 md:w-5/6 mx-auto">
-      {/* HEADINGS */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -41,7 +94,6 @@ const Contact = () => {
         </div>
       </motion.div>
 
-      {/* FORM & IMAGE */}
       <div className="md:flex md:justify-between gap-16 mt-5">
         <motion.div
           initial="hidden"
@@ -54,7 +106,7 @@ const Contact = () => {
           }}
           className="basis-1/2 flex justify-center"
         >
-          <img src="../assets/contact-image.jpeg" alt="contact" />
+          <img src={myimg} alt="contact" className="h-[340px] w-[500px]" />
         </motion.div>
 
         <motion.div
@@ -69,65 +121,63 @@ const Contact = () => {
           className="basis-1/2 mt-10 md:mt-0"
         >
           <form
+            className="text-gray-800"
             target="_blank"
-            onSubmit={onSubmit}
-            action="https://formsubmit.co/e8a5bdfa807605332f809e5656e27c6e"
-            method="POST"
+            ref={form}
+            onSubmit={sendEmail}
           >
             <input
-              className="w-full bg-blue font-semibold placeholder-opaque-black p-3"
+              {...register("from_name", {
+                required: "This field is required.",
+                maxLength: {
+                  value: 100,
+                  message: "Max length is 100 characters.",
+                },
+              })}
+              className="w-full bg-white rounded-sm font-semibold placeholder-opaque-black p-3"
               type="text"
               placeholder="NAME"
-              {...register("name", {
-                required: true,
-                maxLength: 100,
-              })}
             />
-            {errors.name && (
-              <p className="text-red mt-1">
-                {errors.name.type === "required" && "This field is required."}
-                {errors.name.type === "maxLength" && "Max length is 100 char."}
-              </p>
+            {errors.from_name && (
+              <p className="text-red mt-1">{errors.from_name.message}</p>
             )}
 
             <input
-              className="w-full bg-blue font-semibold placeholder-opaque-black p-3 mt-5"
+              {...register("from_email", {
+                required: "This field is required.",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                  message: "Invalid email address.",
+                },
+              })}
+              className="w-full bg-white rounded-sm font-semibold placeholder-opaque-black p-3 mt-5"
               type="text"
               placeholder="EMAIL"
-              {...register("email", {
-                required: true,
-                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              })}
             />
-            {errors.email && (
-              <p className="text-red mt-1">
-                {errors.email.type === "required" && "This field is required."}
-                {errors.email.type === "pattern" && "Invalid email address."}
-              </p>
+            {errors.from_email && (
+              <p className="text-red mt-1">{errors.from_email.message}</p>
             )}
 
             <textarea
-              className="w-full bg-blue font-semibold placeholder-opaque-black p-3 mt-5"
+              {...register("message", {
+                required: "This field is required.",
+                maxLength: {
+                  value: 2000,
+                  message: "Max length is 2000 characters.",
+                },
+              })}
+              className="w-full bg-white rounded-sm font-semibold placeholder-opaque-black p-3 mt-5"
               name="message"
               placeholder="MESSAGE"
               rows="4"
               cols="50"
-              {...register("message", {
-                required: true,
-                maxLength: 2000,
-              })}
             />
             {errors.message && (
-              <p className="text-red mt-1">
-                {errors.message.type === "required" &&
-                  "This field is required."}
-                {errors.message.type === "maxLength" &&
-                  "Max length is 2000 char."}
-              </p>
+              <p className="text-red mt-1">{errors.message.message}</p>
             )}
 
             <button
-              className="p-5 bg-yellow font-semibold text-deep-blue mt-5 hover:bg-red hover:text-white transition duration-500"
+              className="btn  bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90 font-semibold text-deep-blue mt-5 hover:bg-red hover:text-white transition duration-500"
               type="submit"
             >
               SEND ME A MESSAGE

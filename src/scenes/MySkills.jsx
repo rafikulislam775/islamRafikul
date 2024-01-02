@@ -1,6 +1,7 @@
 import LineGradient from "../components/LineGradient";
 import useMediaQuery from "../hooks/useMediaQuery";
 import { motion } from "framer-motion";
+import myPic from "../assets/skillsPic.jpg";
 import data from "../assets/data.json";
 const MySkills = () => {
   const isAboveLarge = useMediaQuery("(min-width: 1060px)");
@@ -19,14 +20,14 @@ const MySkills = () => {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <p className="sm:text-center md:text-left font-playfair font-semibold text-4xl  mb-2">
+          <p className="sm:text-center  font-playfair font-semibold text-4xl  mb-2">
             MY <span className="text-red">SKILLS</span>
           </p>
           <span className="flex sm:justify-center md:justify-start">
-            <LineGradient width="w-1/2 " />
+            <LineGradient width="w-full  " />
           </span>
 
-          <p className="mt-10 mb-7">
+          <p className="mt-10 mb-7 text-center">
             Actively learning and exploring various new technologies is a
             perpetual part of my routine. Embracing the unknown and conquering
             new challenges is where I find my stride.
@@ -41,12 +42,17 @@ const MySkills = () => {
             >
               <img
                 alt="skills"
-                className="z-10"
-                src="assets/skills-image.png"
+                className="z-10 w-[600px] h-[300px]"
+                // src="assets/skills-image.png"
+                src={myPic}
               />
             </div>
           ) : (
-            <img alt="skills" className="z-10" src="assets/skills-image.png" />
+            <img
+              alt="skills"
+              className="z-10 w-[600px] h-[300px] mx-auto"
+              src={myPic}
+            />
           )}
         </div>
       </div>
