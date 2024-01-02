@@ -24,13 +24,16 @@ const Project = ({ Title, Live, Client, Server, img }) => {
     <motion.div variants={projectVariant} className="relative mb-8 sm:mb-0">
       <div className={overlayStyles}>
         <p className="text-lg font-playfair">{Title}</p>
-        <p className="mt-2 sm:mt-4">Description of the project goes here.</p>
+        <p className="mt-2 sm:mt-4">
+          Here is the project live link and code link <br />
+          Click to learn more and understand.
+        </p>
         <div className="flex mt-2 sm:mt-4">
           <a
             href={Live}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn mr-2 sm:mr-4"
+            className="btn mr-2 sm:mr-4 btn-sm hover:btn-info"
           >
             Live
           </a>
@@ -39,7 +42,7 @@ const Project = ({ Title, Live, Client, Server, img }) => {
               href={Client}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn mr-2 sm:mr-4"
+              className="btn btn-sm hover:btn-info  mr-2 sm:mr-4"
             >
               Code
             </a>
@@ -49,7 +52,7 @@ const Project = ({ Title, Live, Client, Server, img }) => {
               href={Server}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn"
+              className="btn btn-sm hover:btn-info"
             >
               Server
             </a>
