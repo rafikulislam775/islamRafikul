@@ -1,13 +1,13 @@
 import SocialMediaIcons from "../components/SocialMediaIcons";
-
+import logo from "../assets/logo__.png";
 const Footer = () => {
   return (
-    <footer className="h-64 min-w-full bg-red pt-10">
-      <div className="w-10/12 mx-auto">
-        <SocialMediaIcons />
+    <footer className=" min-w-full bg-red ">
+      <div className="w-10/12  mx-auto">
+        <img className="w-24 -ml-2" src={logo} alt="" />
         <div className="md:flex justify-center md:justify-between text-center ">
           <p className="font-playfair font-semibold text-2xl text-yellow">
-            ISLAM RAFIKUL
+            <SocialMediaIcons />
           </p>
           <p className="font-playfair text-md text-yellow">
             ©2023 All Rights Reserved.

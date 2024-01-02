@@ -59,7 +59,7 @@ const Landing = ({ setSelectedPage }) => {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <p className="text-6xl font-playfair z-10 text-center md:text-start">
+          <p className=" sm:text-2xl md:text-4xl font-playfair z-10 text-center md:text-start">
             Hi there,
             <br />
             this is
