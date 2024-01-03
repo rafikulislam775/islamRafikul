@@ -2,18 +2,14 @@ import SocialMediaIcons from "../components/SocialMediaIcons";
 import logo from "../assets/logo__.png";
 const Footer = () => {
   return (
-    <footer className=" min-w-full bg-red ">
-      <div className="w-10/12  mx-auto">
-        <img className="w-24 -ml-2" src={logo} alt="" />
-        <div className="md:flex justify-center md:justify-between text-center ">
-          <p className="font-playfair font-semibold text-2xl text-yellow">
-            <SocialMediaIcons />
-          </p>
-          <p className="font-playfair text-md text-yellow">
-            ©2023 All Rights Reserved.
-          </p>
-        </div>
-      </div>
+    <footer className="footer items-center  bg-neutral text-neutral-content">
+      <aside className="items-center grid-flow-col">
+        <img className="w-16" src={logo} alt="" />
+        <p>Copyright © 2024 - All right reserved</p>
+      </aside>
+      <nav className="grid-flow-col md:mr-28 gap-4 md:place-self-center md:justify-self-end">
+        <SocialMediaIcons />
+      </nav>
     </footer>
   );
 };

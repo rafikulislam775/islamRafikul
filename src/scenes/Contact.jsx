@@ -106,7 +106,11 @@ const Contact = () => {
           }}
           className="basis-1/2 flex justify-center"
         >
-          <img src={myimg} alt="contact" className="h-[340px] w-[500px]" />
+          <img
+            src={myimg}
+            alt="contact"
+            className="h-[340px] w-[500px] shadow-2xl"
+          />
         </motion.div>
 
         <motion.div

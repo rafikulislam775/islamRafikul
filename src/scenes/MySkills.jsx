@@ -20,7 +20,7 @@ const MySkills = () => {
             visible: { opacity: 1, x: 0 },
           }}
         >
-          <p className="sm:text-center  font-playfair font-semibold text-4xl  mb-2">
+          <p className="text-center  font-playfair font-semibold text-4xl  mb-2">
             MY <span className="text-red">SKILLS</span>
           </p>
           <span className="flex sm:justify-center md:justify-start">

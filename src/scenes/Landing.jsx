@@ -7,6 +7,7 @@ import profile1 from "../assets/rafikulpng.png";
 // import profile1 from "../assets/rafikul.jpg";
 import Typewriter from "typewriter-effect";
 
+
 const Landing = ({ setSelectedPage }) => {
   const isAboveLarge = useMediaQuery("(min-width: 1060px)");
 
@@ -67,8 +68,13 @@ const Landing = ({ setSelectedPage }) => {
               options={{
                 strings: [
                   "ISLAM RAFIKUL",
-                  "a software engineer",
+                  "a junior engineer",
                   " junior developer",
+                  "problem-solving wizard",
+                  "emerging tech explorer",
+                  "continuous learner",
+                  "innovation enthusiast",
+                  "building a tech future",
                 ],
                 autoStart: true,
                 loop: true,
@@ -108,13 +114,19 @@ const Landing = ({ setSelectedPage }) => {
           >
             Contact Me
           </AnchorLink>
-          <AnchorLink
-            className="rounded-r-sm bg-gradient-rainblue py-0.5 pr-0.5"
-            onClick={() => setSelectedPage("contact")}
-            href="#contact"
-          >
-            <div className="bg-deep-blue hover:text-red transition duration-500 w-full h-full flex items-center justify-center px-10 font-playfair">
-              DOWNLOAD RESUME <IoIosCloudDownload />
+          <AnchorLink className="rounded-r-sm bg-gradient-rainblue py-0.5 pr-0.5">
+            <div className="bg-deep-blue hover:text-red transition duration-500 w-full h-full flex items-center justify-center px-2 font-playfair ">
+              <a
+                // href="https://drive.google.com/file/d/1LpLfT2S9TjEdQQr6ZOcqEeqFDxSMy7nx/view?usp=sharing"
+                href="https://drive.usercontent.google.com/u/2/uc?id=1LpLfT2S9TjEdQQr6ZOcqEeqFDxSMy7nx&export=download"
+                download="islam_rafikul_resume"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()} // Prevents event propagation to avoid opening the link in a new tab
+              >
+                DOWNLOAD RESUME{" "}
+                <IoIosCloudDownload className="text-2xl ml-2 inline-block"></IoIosCloudDownload>
+              </a>
             </div>
           </AnchorLink>
         </motion.div>
