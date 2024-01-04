@@ -63,13 +63,13 @@ const Landing = ({ setSelectedPage }) => {
           <p className=" sm:text-2xl md:text-4xl font-playfair z-10 text-center md:text-start">
             Hi there,
             <br />
-            this is
+            This is
             <Typewriter
               options={{
                 strings: [
                   "ISLAM RAFIKUL",
                   "a junior engineer",
-                  " junior developer",
+                  " a junior developer",
                   "problem-solving wizard",
                   "emerging tech explorer",
                   "continuous learner",
@@ -118,7 +118,7 @@ const Landing = ({ setSelectedPage }) => {
             <div className="bg-deep-blue hover:text-red transition duration-500 w-full h-full flex items-center justify-center px-2 font-playfair ">
               <a
                 // href="https://drive.google.com/file/d/1LpLfT2S9TjEdQQr6ZOcqEeqFDxSMy7nx/view?usp=sharing"
-                href="https://drive.usercontent.google.com/u/2/uc?id=1LpLfT2S9TjEdQQr6ZOcqEeqFDxSMy7nx&export=download"
+                href="https://drive.usercontent.google.com/download?id=170rq4Haujf8sJxb_41Pb-qL0XNEQMUTj&export=download&authuser=1&confirm=t&uuid=d0ad5f47-2a84-40e0-b8ce-3536c31b9d81&at=APZUnTV_20zaQ992dnmY_YV-c8c_:1704368756963"
                 download="islam_rafikul_resume"
                 target="_blank"
                 rel="noopener noreferrer"

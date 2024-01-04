@@ -1,6 +1,6 @@
 import LineGradient from "../components/LineGradient";
 import { motion } from "framer-motion";
-
+import ReactParallaxTilt from "react-parallax-tilt";
 const container = {
   hidden: {},
   visible: {
@@ -21,46 +21,48 @@ const Project = ({ Title, Live, Client, Server, img }) => {
   const projectTitle = Title.split(" ").join("-").toLowerCase();
 
   return (
-    <motion.div variants={projectVariant} className="relative mb-8 sm:mb-0">
-      <div className={overlayStyles}>
-        <p className="text-lg font-playfair">{Title}</p>
-        <p className="mt-2 sm:mt-4">
-          Here is the project live link and code link <br />
-          Click to learn more and understand.
-        </p>
-        <div className="flex mt-2 sm:mt-4">
-          <a
-            href={Live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn mr-2 sm:mr-4 btn-sm hover:btn-info"
-          >
-            Live
-          </a>
-          {Client && (
+    <ReactParallaxTilt tiltEnable={false} scale={1.1} transitionSpeed={1500}>
+      <motion.div variants={projectVariant} className="relative mb-8 sm:mb-0">
+        <div className={overlayStyles}>
+          <p className="text-lg font-playfair">{Title}</p>
+          <p className="mt-2 sm:mt-4">
+            Here is the project live link and code link <br />
+            Click to learn more and understand.
+          </p>
+          <div className="flex mt-2 sm:mt-4">
             <a
-              href={Client}
+              href={Live}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn btn-sm hover:btn-info  mr-2 sm:mr-4"
+              className="btn mr-2 sm:mr-4 btn-sm hover:btn-info"
             >
-              Code
+              Live
             </a>
-          )}
-          {Server && (
-            <a
-              href={Server}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-sm hover:btn-info"
-            >
-              Server
-            </a>
-          )}
+            {Client && (
+              <a
+                href={Client}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-sm hover:btn-info  mr-2 sm:mr-4"
+              >
+                Code
+              </a>
+            )}
+            {Server && (
+              <a
+                href={Server}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-sm hover:btn-info"
+              >
+                Server
+              </a>
+            )}
+          </div>
         </div>
-      </div>
-      <img src={img} alt={projectTitle} className="w-full h-auto" />
-    </motion.div>
+        <img src={img} alt={projectTitle} className="w-full h-auto" />
+      </motion.div>{" "}
+    </ReactParallaxTilt>
   );
 };
 

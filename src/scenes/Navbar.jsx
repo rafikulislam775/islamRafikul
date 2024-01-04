@@ -7,8 +7,10 @@ const Link = ({ page, selectedPage, setSelectedPage }) => {
   return (
     <AnchorLink
       className={`${
-        selectedPage === lowerCasePage ? "text-yellow" : ""
-      } hover:text-yellow transition duration-500`}
+        selectedPage === lowerCasePage
+          ? "text-yellow  transition duration-500"
+          : ""
+      } hover:text-yellow  transition duration-300`}
       href={`#${lowerCasePage}`}
       onClick={() => setSelectedPage(lowerCasePage)}
     >
@@ -25,7 +27,7 @@ const Navbar = ({ isTopOfPage, selectedPage, setSelectedPage }) => {
     : "bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90";
 
   return (
-    <nav className={`${navbarBackground} z-40 w-full fixed top-0 py-6`}>
+    <nav className={`${navbarBackground} z-40 w-full fixed top-0 py-4`}>
       <div className="flex items-center justify-between mx-auto w-5/6">
         {/* <h4 className="font-playfair text-3xl font-bold">I R</h4> */}
         <img className="w-14" src={logo} alt="" />

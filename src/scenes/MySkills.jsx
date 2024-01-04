@@ -3,6 +3,9 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import { motion } from "framer-motion";
 import myPic from "../assets/skillsPic.jpg";
 import data from "../assets/data.json";
+import AOS from "aos";
+import "aos/dist/aos.css";
+AOS.init();
 const MySkills = () => {
   const isAboveLarge = useMediaQuery("(min-width: 1060px)");
   return (
@@ -66,6 +69,7 @@ const MySkills = () => {
         </h3>
         {data.languagesAndTools.map((tool, index) => (
           <div
+            data-aos="zoom-in"
             key={index}
             className="bg-white bg-opacity-20 rounded-md  flex flex-col items-center justify-center shadow-md"
           >
@@ -99,7 +103,7 @@ const MySkills = () => {
                 Experience
               </p>
             </div>
-            <div className="w-1/2 md:w-3/4 h-32 bg-blue absolute right-0 top-0 z-[-1]" />
+            <div className="w-1/2 md:w-3/4 h-32 bg-blue opacity-30 absolute right-0 top-0 z-[-1]" />
           </div>
           <p className="mt-5">
             Engaged in a captivating personal project, demonstrating a keen
@@ -127,7 +131,7 @@ const MySkills = () => {
                 Innovative
               </p>
             </div>
-            <div className="w-1/2 md:w-3/4 h-32 bg-red absolute right-0 top-0 z-[-1]" />
+            <div className="w-1/2 md:w-3/4 h-32 bg-red opacity-30 absolute right-0 top-0 z-[-1]" />
           </div>
           <p className="mt-5">
             Proactively delving into cutting-edge technologies showcases my
@@ -154,7 +158,7 @@ const MySkills = () => {
                 Imaginative
               </p>
             </div>
-            <div className="w-1/2 md:w-3/4 h-32 bg-yellow absolute right-0 top-0 z-[-1]" />
+            <div className="w-1/2 md:w-3/4 h-32 bg-gray-200 opacity-30 absolute right-0 top-0 z-[-1]" />
           </div>
           <p className="mt-5">
             Navigating a diverse landscape of ideas and perspectives through
